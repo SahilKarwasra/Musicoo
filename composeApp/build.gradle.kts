@@ -66,9 +66,10 @@ kotlin {
 
             implementation(libs.bundles.ktor)
             implementation(libs.bundles.coil)
+            implementation("com.squareup.okio:okio:3.16.0")
         }
         commonTest.dependencies {
-            implementation(libs.kotlin.test)
+//            implementation(libs.kotlin.test)
         }
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)

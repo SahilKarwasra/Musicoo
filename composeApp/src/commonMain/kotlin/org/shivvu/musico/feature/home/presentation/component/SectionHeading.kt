@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 fun SectionHeading(
     heading: String
 ) {
-    Row(modifier = Modifier.fillMaxWidth().padding(6.dp)) {
-        Text(heading, style = MaterialTheme.typography.displaySmall, color = Color.White)
+    Row(modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 12.dp)) {
+        Text(heading, style = MaterialTheme.typography.headlineLarge, color = Color.White)
     }
 }

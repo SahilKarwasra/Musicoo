@@ -8,23 +8,23 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 
 @Composable
-fun TrendingSongsCard(
+fun TopPlaylistCard(
+    onClick: () -> Unit = {},
     image: String?,
     title: String?,
-    subtitle: String?,
-    onClick: () -> Unit = {}
+    totalTracks: String?
 ) {
     Column(
         modifier = Modifier.clickable(onClick = onClick).padding(horizontal = 12.dp)
@@ -32,23 +32,29 @@ fun TrendingSongsCard(
         AsyncImage(
             model = image,
             contentDescription = null,
-            modifier = Modifier.size(170.dp).aspectRatio(9f / 16f)
+            modifier = Modifier
+                .clip(
+                    shape = RoundedCornerShape(12.dp)
+                )
+                .size(170.dp)
+                .aspectRatio(9f / 16f)
+
         )
         Spacer(modifier = Modifier.height(12.dp))
-        if (title != null) {
+        title?.let {
             Text(
-                text = title,
+                it,
                 style = MaterialTheme.typography.titleMedium,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.width(170.dp),
-                maxLines = 1,
+                maxLines = 2,
                 color = Color.White
             )
         }
-        Spacer(modifier = Modifier.height(6.dp))
-        if (subtitle != null) {
+        Spacer(modifier = Modifier.height(4.dp))
+        totalTracks?.let {
             Text(
-                text = subtitle,
+                "$it Tracks",
                 style = MaterialTheme.typography.titleSmall,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.width(170.dp),
@@ -56,8 +62,5 @@ fun TrendingSongsCard(
                 color = Color.Gray
             )
         }
-        Spacer(modifier = Modifier.height(16.dp))
     }
-
-
 }

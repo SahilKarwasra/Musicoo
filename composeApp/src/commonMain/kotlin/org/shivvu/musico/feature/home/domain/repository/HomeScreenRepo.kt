@@ -1,7 +1,8 @@
 package org.shivvu.musico.feature.home.domain.repository
 
-import org.shivvu.musico.feature.home.domain.model.NewTrending
+import org.shivvu.musico.feature.home.domain.model.HomeScreenResponse
+
 
 interface HomeScreenRepo {
-    suspend fun fetchNewTrendingSongs() : List<NewTrending>
+    suspend fun fetchHomeScreenData() : HomeScreenResponse
 }

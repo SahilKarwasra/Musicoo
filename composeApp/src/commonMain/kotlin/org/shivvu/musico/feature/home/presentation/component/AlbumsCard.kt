@@ -9,22 +9,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 
 @Composable
-fun TrendingSongsCard(
+fun AlbumsCard(
+    onClick : () -> Unit = {},
     image: String?,
     title: String?,
-    subtitle: String?,
-    onClick: () -> Unit = {}
+    subtitle: String?
 ) {
     Column(
         modifier = Modifier.clickable(onClick = onClick).padding(horizontal = 12.dp)
@@ -58,6 +56,4 @@ fun TrendingSongsCard(
         }
         Spacer(modifier = Modifier.height(16.dp))
     }
-
-
 }
